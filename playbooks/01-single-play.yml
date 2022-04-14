@@ -1,0 +1,11 @@
+---
+- name: update n1 server
+  hosts: n1
+  
+  tasks:
+  - name: create directory
+    file:
+      path: /home/centos/mydir
+      state: directory
+
+...

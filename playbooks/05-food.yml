@@ -1,0 +1,16 @@
+---
+- name: update n1 server
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: install git
+    yum:
+      name: git
+      state: present
+
+  - name: deploy site
+    git:
+      repo: https://github.com/ravi2krishna/food.git 
+      dest: /var/www/html
+...

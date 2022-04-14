@@ -1,0 +1,19 @@
+---
+- name: update n1 server
+  hosts: n1
+  become: yes
+  vars:
+    http_port: 8080
+
+  tasks:
+
+  - name: change config file
+    template:
+      src: httpd.j2
+      dest: /etc/httpd/conf/httpd.conf
+
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
+...

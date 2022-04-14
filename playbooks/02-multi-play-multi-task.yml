@@ -1,0 +1,29 @@
+---
+- name: update n1 server
+  hosts: n1
+  
+  tasks:
+  - name: create directory
+    file:
+      path: /home/centos/mydir
+      state: directory
+  
+  - name: create file
+    file:
+      path: /home/centos/mydir/file.txt
+      state: touch
+
+- name: update n2 server
+  hosts: n2
+
+  tasks:
+  - name: create directory
+    file:
+      path: /home/ec2-user/mydir
+      state: directory
+  
+  - name: create file
+    file:
+      path: /home/ec2-user/mydir/file.txt
+      state: touch
+...

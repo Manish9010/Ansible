@@ -1,0 +1,14 @@
+---
+- name: update n1 server
+  hosts: group1
+  become: yes
+  vars:
+    user_name: developer
+   
+  tasks:
+
+  - name: deploy template page
+    template:
+      src: dynamic.j2 
+      dest: /var/www/html/dynamic.html
+...
